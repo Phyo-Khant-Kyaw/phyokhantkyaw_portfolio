@@ -7,12 +7,13 @@ const Navbar = () => {
   const navbarRef = useRef(null);
   const navLinksRef = useRef([]);
   const mobileMenuRef = useRef(null);
+  const sections = ["hero", "about", "experience", "projects", "contact"];
 
   useEffect(() => {
     gsap.fromTo(
       navbarRef.current,
-      { x: 100, opacity: 0, scale: 0.9 },
-      { x: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" }
+      { y: -24, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
     );
   }, []);
 
@@ -20,12 +21,12 @@ const Navbar = () => {
     if (navLinksRef.current.length) {
       gsap.fromTo(
         navLinksRef.current,
-        { y: -20, opacity: 0 },
+        { y: -12, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.5,
+          stagger: 0.06,
           ease: "power2.out",
         }
       );
@@ -36,52 +37,72 @@ const Navbar = () => {
     if (isOpen && mobileMenuRef.current) {
       gsap.fromTo(
         mobileMenuRef.current,
-        { y: -20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
+        { y: -16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }
       );
     }
   }, [isOpen]);
 
   return (
     <nav
-      className="w-full px-6 md:px-40 h-[10vh] flex items-center justify-between font-semibold relative z-50"
+      className="sticky top-0 z-50 border-b border-black/10 bg-[#f7f4ee]/85 px-5 py-4 backdrop-blur-xl md:px-10 lg:px-20"
       ref={navbarRef}
     >
-      <div className="text-3xl font-bold tracking-widest">PK</div>
-      <ul className="hidden md:flex space-x-10 lg:space-x-16">
-        {["hero", "about", "projects", "contact"].map((section, index) => (
-          <li key={section}>
-            <a
-              href={`#${section}`}
-              className="text-xl tracking-widest"
-              ref={(el) => (navLinksRef.current[index] = el)}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div className="md:hidden">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="focus:outline-none"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-      {isOpen && (
-        <ul
-          className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden"
-          ref={mobileMenuRef}
-        >
-          {["hero", "about", "projects", "contact"].map((section) => (
+      <div className="mx-auto flex max-w-7xl items-center justify-between">
+        <a href="#hero" className="flex items-center gap-3">
+          <span className="grid h-11 w-11 place-items-center rounded-full bg-[#18211f] text-sm font-black text-white">
+            PK
+          </span>
+          <span className="hidden text-sm font-bold uppercase text-[#18211f] sm:block">
+            Phyo Khant Kyaw
+          </span>
+        </a>
+
+        <ul className="hidden items-center gap-2 md:flex">
+          {sections.map((section, index) => (
             <li key={section}>
               <a
                 href={`#${section}`}
-                className="text-xl tracking-widest"
+                className="rounded-full px-4 py-2 text-sm font-semibold capitalize text-[#48504c] transition hover:bg-white hover:text-[#18211f] hover:shadow-sm"
+                ref={(el) => (navLinksRef.current[index] = el)}
+              >
+                {section}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="#contact"
+          className="hidden rounded-full bg-[#e75d3c] px-5 py-2.5 text-sm font-bold text-white shadow-[0_10px_30px_rgba(231,93,60,0.28)] transition hover:-translate-y-0.5 hover:bg-[#cf4c2f] lg:inline-flex"
+        >
+          Hire me
+        </a>
+
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="grid h-11 w-11 place-items-center rounded-full border border-black/10 bg-white text-[#18211f]"
+            aria-label="Toggle navigation"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </div>
+
+      {isOpen && (
+        <ul
+          className="absolute left-4 right-4 top-[72px] flex flex-col gap-2 rounded-2xl border border-black/10 bg-white p-3 shadow-2xl md:hidden"
+          ref={mobileMenuRef}
+        >
+          {sections.map((section) => (
+            <li key={section}>
+              <a
+                href={`#${section}`}
+                className="block rounded-xl px-4 py-3 text-sm font-bold capitalize text-[#18211f] hover:bg-[#f7f4ee]"
                 onClick={() => setIsOpen(false)}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {section}
               </a>
             </li>
           ))}

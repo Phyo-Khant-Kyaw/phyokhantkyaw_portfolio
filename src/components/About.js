@@ -1,144 +1,119 @@
 import React from "react";
 import { DiJqueryLogo } from "react-icons/di";
 import {
-  FaJsSquare,
-  FaPython,
-  FaJava,
-  FaPhp,
-  FaReact,
-  FaLaravel,
   FaAws,
-} from "react-icons/fa";
-import {
-  FaHtml5,
+  FaBasketballBall,
   FaCss3Alt,
-  FaDocker,
   FaDatabase,
+  FaDocker,
+  FaGamepad,
+  FaHtml5,
+  FaJava,
+  FaJsSquare,
+  FaLaravel,
+  FaPhp,
+  FaPlane,
+  FaPython,
+  FaReact,
   FaVuejs,
 } from "react-icons/fa";
-
-import { FaGamepad, FaBasketballBall, FaPlane } from "react-icons/fa";
 import { RiFirebaseFill } from "react-icons/ri";
 import { SiSpringboot, SiTypescript } from "react-icons/si";
 
 const About = () => {
+  const skills = [
+    ["JavaScript", FaJsSquare, "text-yellow-500"],
+    ["TypeScript", SiTypescript, "text-blue-600"],
+    ["React", FaReact, "text-cyan-500"],
+    ["Vue", FaVuejs, "text-green-600"],
+    ["Laravel", FaLaravel, "text-red-500"],
+    ["Spring Boot", SiSpringboot, "text-green-500"],
+    ["PHP", FaPhp, "text-indigo-500"],
+    ["Java", FaJava, "text-red-600"],
+    ["Python", FaPython, "text-blue-500"],
+    ["MySQL", FaDatabase, "text-amber-600"],
+    ["PostgreSQL", FaDatabase, "text-sky-700"],
+    ["NoSQL", FaDatabase, "text-emerald-700"],
+    ["Firebase", RiFirebaseFill, "text-orange-400"],
+    ["AWS", FaAws, "text-orange-500"],
+    ["Docker", FaDocker, "text-blue-500"],
+    ["jQuery", DiJqueryLogo, "text-blue-600"],
+    ["HTML", FaHtml5, "text-orange-600"],
+    ["CSS", FaCss3Alt, "text-blue-500"],
+  ];
+
+  const interests = [
+    [FaGamepad, "Games"],
+    [FaBasketballBall, "Basketball"],
+    [FaPlane, "Travel"],
+  ];
+
   return (
     <section
       id="about"
-      className="h-auto w-full bg-gray-100 text-gray-800 p-8 lg:flex lg:p-16 lg:px-24 tracking-widest"
+      className="w-full bg-white px-5 py-20 text-[#18211f] md:px-10 lg:px-20"
     >
-      <div className="w-full lg:w-1/2 lg:pr-10 mb-10 lg:mb-0">
-        <h2 className="text-2xl lg:text-5xl font-bold mb-20 w-full text-center tracking-widest">
-          Know Who <span className="text-purple-400 font-bold">I'm</span>
-        </h2>
-        <p className="text-xl mb-10">
-          Hi Everyone, I am{" "}
-          <span className="text-purple-400 font-bold">Phyo Khant Kyaw</span>{" "}
-          from{" "}
-          <span className="text-purple-400 font-bold">Yangon, Myanmar</span>.But
-          now, I am currently live in
-          <span className="text-purple-400 font-bold"> Bangkok, Thailand</span>.
-          I am currently employed as a software developer at{" "}
-          <a href="https://mpss.com.mm/" className="text-blue-600 font-medium">
-            Myanmar Payment Solution Services
-          </a>
-          . I have completed Integrated BSc in Computer Science (Third Year) at
-          Yangon University.
-        </p>
-        <p className="text-xl mb-10">
-          Apart from coding, some other activities that I love to do!
-        </p>
-        <ul className="mt-4 space-y-3">
-          <li className="flex items-center p-4 bg-white rounded shadow hover:shadow-lg transition-shadow duration-300">
-            <FaGamepad className="text-blue-500 mr-2 text-2xl" />
-            Playing Games
-          </li>
-          <li className="flex items-center p-4 bg-white rounded shadow hover:shadow-lg transition-shadow duration-300">
-            <FaBasketballBall className="text-orange-500 mr-2 text-2xl" />
-            Playing Basketball
-          </li>
-          <li className="flex items-center p-4 bg-white rounded shadow hover:shadow-lg transition-shadow duration-300">
-            <FaPlane className="text-green-500 mr-2 text-2xl" />
-            Travelling
-          </li>
-        </ul>
-      </div>
-      <div className="w-full lg:w-1/2 lg:pl-10">
-        <h2 className="text-2xl lg:text-5xl font-bold mb-20 w-full text-center tracking-widest">
-          Professional <span className="text-purple-400">Skillset</span>
-        </h2>
-        <div className="flex flex-wrap gap-4">
-          <div className="flex items-center">
-            <FaJsSquare className="text-yellow-500 text-4xl" />
-            <span className="ml-2">JavaScript</span>
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="text-sm font-black uppercase text-[#e75d3c]">
+            About me
+          </p>
+          <h2 className="mt-3 text-4xl font-black leading-tight md:text-6xl">
+            FullStack Web Developer with backend depth and front-end taste.
+          </h2>
+          <div className="mt-7 space-y-5 text-lg leading-8 text-[#48504c]">
+            <p>
+              I am Phyo Khant Kyaw, a FullStack Web Developer from Yangon currently
+              based in Bangkok. I work at{" "}
+              <a
+                href="https://mpss.com.mm/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#0f766e] underline decoration-[#0f766e]/30 underline-offset-4"
+              >
+                Myanmar Payment Solution Services
+              </a>
+              , building practical systems that need to be dependable,
+              maintainable, and easy to use.
+            </p>
+            <p>
+              My background spans web development, testing, UI implementation,
+              and API integration. I studied Integrated BSc in Computer Science
+              at Yangon University and keep sharpening my craft through real
+              products.
+            </p>
           </div>
-          <div className="flex items-center">
-            <FaPython className="text-blue-500 text-4xl" />
-            <span className="ml-2">Python</span>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {interests.map(([Icon, label]) => (
+              <div
+                key={label}
+                className="flex items-center gap-3 rounded-2xl border border-black/10 bg-[#f7f4ee] p-4 font-bold text-[#18211f]"
+              >
+                <Icon className="text-xl text-[#e75d3c]" />
+                {label}
+              </div>
+            ))}
           </div>
-          <div className="flex items-center">
-            <FaJava className="text-red-600 text-4xl" />
-            <span className="ml-2">Java</span>
-          </div>
-          <div className="flex items-center">
-            <FaPhp className="text-purple-600 text-4xl" />
-            <span className="ml-2">PHP</span>
-          </div>
-          <div className="flex items-center">
-            <FaReact className="text-cyan-500 text-4xl" />
-            <span className="ml-2">React</span>
-          </div>
-          <div className="flex items-center">
-            <FaHtml5 className="text-orange-600 text-4xl" />
-            <span className="ml-2">HTML</span>
-          </div>
-          <div className="flex items-center">
-            <FaCss3Alt className="text-blue-500 text-4xl" />
-            <span className="ml-2">CSS</span>
-          </div>
-          <div className="flex items-center">
-            <FaVuejs className="text-green-600 text-4xl" />
-            <span className="ml-2">Vue</span>
-          </div>
-          <div className="flex items-center">
-            <DiJqueryLogo className="text-blue-600 text-3xl" />
-            <span className="ml-2">jQuery</span>
-          </div>
-          <div className="flex items-center">
-            <SiTypescript className="text-blue-600 text-3xl" />
-            <span className="ml-2">TypeScript</span>
-          </div>
-          <div className="flex items-center">
-            <FaDatabase className="text-yellow-600 text-4xl" />
-            <span className="ml-2">MySQL</span>
-          </div>
-          <div className="flex items-center">
-            <FaDatabase className="text-yellow-600 text-4xl" />
-            <span className="ml-2">PostgreSQL</span>
-          </div>
-          <div className="flex items-center">
-            <FaDatabase className="text-yellow-600 text-4xl" />
-            <span className="ml-2">NoSQL</span>
-          </div>
-          <div className="flex items-center">
-            <SiSpringboot className="text-green-400 text-4xl" />
-            <span className="ml-2">Spring</span>
-          </div>
-          <div className="flex items-center">
-            <FaLaravel className="text-red-400 text-4xl" />
-            <span className="ml-2">Laravel</span>
-          </div>
-          <div className="flex items-center">
-            <RiFirebaseFill className="text-orange-300 text-5xl" />
-            <span className="ml-2">Firebase</span>
-          </div>
-          <div className="flex items-center">
-            <FaAws className="text-orange-400 text-4xl" />
-            <span className="ml-2">AWS</span>
-          </div>
-          <div className="flex items-center">
-            <FaDocker className="text-blue-400 text-4xl" />
-            <span className="ml-2">Docker</span>
+        </div>
+
+        <div>
+          <p className="text-sm font-black uppercase text-[#0f766e]">
+            Professional skillset
+          </p>
+          <h3 className="mt-3 text-3xl font-black md:text-5xl">
+            Tools I use to ship.
+          </h3>
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {skills.map(([name, Icon, color]) => (
+              <div
+                key={name}
+                className="flex min-h-20 items-center gap-3 rounded-2xl border border-black/10 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <Icon className={`${color} shrink-0 text-3xl`} />
+                <span className="font-bold text-[#18211f]">{name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
